@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  core:
+    build:
+      context: ./core
+      dockerfile: ./deploy/Dockerfile
+      target: dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./core:/var/www/core
+    depends_on:
+      - storage
+
+  storage:
+    image: redis:7-alpine

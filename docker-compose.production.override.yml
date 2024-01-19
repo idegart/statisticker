@@ -1,0 +1,27 @@
+services:
+  ab:
+    image: httpd
+    tty: true
+    volumes:
+      - ./ab/post.data:/var/www/post.data:ro
+    depends_on:
+      - webserver
+
+  webserver:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./webserver/templates:/etc/nginx/templates:ro
+      - ./core:/var/www/core:ro
+    depends_on:
+      - core
+
+  core:
+    build:
+      context: ./core
+      dockerfile: ./deploy/Dockerfile
+      target: prod
+    ports: !reset []
+    deploy:
+      replicas: 10

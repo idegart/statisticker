@@ -1,0 +1,12 @@
+{
+    "name": "root/core",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Root\\Core\\": "src/"
+        }
+    },
+    "require": {
+        "predis/predis": "^2.2"
+    }
+}
