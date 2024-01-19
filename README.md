@@ -35,7 +35,7 @@
 
 ### Production mode
 - `make build` - устанавливаем зависимости для приложения
-- `make up.prod` - запуск приложения в dev режиме (доступ по http://localhost:8000)
+- `make up.prod` - запуск приложения в dev режиме (доступ по http://localhost)
 - `curl -d "code=ru" -X POST http://localhost` - добавиление статистики по стране
 - `curl http://localhost` - получение статистики по странам
 - `make prod.performance.hit` - выполнить нагрузочное тестирование на добавиление статистики по стране
